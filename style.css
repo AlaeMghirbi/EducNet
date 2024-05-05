@@ -1,0 +1,641 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap');
+
+*{  font-family: 'Nunito',sans-serif;
+	padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    box-sizing: border-box; 
+    outline: none; border:none;
+}
+:root{
+    --blue0:rgb(226, 239, 244);
+    --blue1:#137C8B;
+    --blue2:#709CA7;
+    --blue3:#B8CBD0;
+    --blue4:#7A90A4;
+    --blue5:#344D59; 
+}
+*::selection{
+    background-color: var(--blue5);
+    color: #fff;
+
+}
+*::-webkit-scrollbar{
+  height: 5rem;
+  width: 1rem;
+
+}
+*::-webkit-scrollbar-track{
+    background-color:transparent ;
+}
+*::-webkit-scrollbar-thumb{
+    background-color:var(--blue5) ;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+   
+}
+body{
+    background-color:rgb(226, 239, 244) ;
+    padding-left: 30rem;
+
+} 
+section{
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.heading{
+    font-size: 2.5rem;
+    color:var(--black);
+    margin-bottom: 2.5rem;
+    border-bottom: .1rem solid rgba(0,0,0,.2);
+    padding-bottom: 1.5rem;
+    text-transform: capitalize;
+    text-align: center;
+ }
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn,
+.btn,
+.delete-btn,
+.option-btn{
+   border-radius: .5rem;
+   color:#fff;
+   font-size: 1.8rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   padding:1rem 3rem;
+   text-align: center;
+   margin-top: 1rem;
+}
+
+.btn,
+.delete-btn,
+.option-btn{
+   display: block;
+   width: 100%;
+}
+
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn{
+   display: inline-block;
+}
+
+.btn,
+.inline-btn{
+   background-color: var(--blue5);
+}
+
+
+
+
+.inline-btn:hover,
+.inline-option-btn:hover,
+.inline-delete-btn:hover,
+.btn:hover,
+.delete-btn:hover,
+.option-btn:hover{
+   background-color: black;
+   color: white;
+}
+
+.flex-btn{
+   display: flex;
+   gap: 1rem;
+}
+
+.header{
+    background-color: #fff;
+    border-bottom: #344D59;
+    position: sticky;
+    top: 0;left: 0;right: 0;
+    z-index: 1000;
+}
+.header .flex{
+    padding: 1.5rem 2rem ;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content:space-between ;
+}
+.header .flex .logo{
+    font-size: 2.5rem;
+    color: black;
+    font-weight: bold;
+}
+.header .flex .search-form{
+   width: 50rem;
+   border-radius: .5rem;
+   display: flex;
+   align-items: center;
+   gap: 1.5rem;
+   padding:1rem 2rem ;
+   background-color: rgb(226, 239, 244);
+}
+.header .flex .search-form input{
+    width:100% ;
+    background:none ;
+    font-size: 1.8rem;
+    color: black;
+    
+}
+.header .flex .search-form button{
+    font-size: 2.5rem;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    background: none;
+    
+}
+.header .flex .search-form button:hover{
+    color: var(--blue5);
+}
+.header .flex .icons div{
+    font-size: 2rem;
+    color: black;
+    border-radius: .5rem;
+    height: 4.5rem;
+    cursor: pointer;
+    width: 4.5rem;
+    line-height: 4.4rem;
+    background-color:  rgb(226, 239, 244);
+    text-align: center;
+    margin-left: .5rem;
+}
+.header .flex .icons div:hover{
+background-color: var(--blue5);
+color: white;
+}
+#search-btn{
+    display:none;
+}
+.header .flex .profile{
+    position: absolute;
+    top: 120%;right: 2rem;
+    background-color: #fff;
+    border-radius: .5rem;
+    padding: 2rem;
+    text-align: center;
+    width: 30rem;
+    transform: scale(0);
+    transform-origin: top right;
+    transition: 0.2s linear;
+
+}
+.header .flex .profile.active{
+    transform: scale(1);
+}
+.header .flex .profile img{
+    height: 10rem;
+    width: 10rem;
+    border-radius:50% ;
+    object-fit: cover;
+    margin-bottom: .5rem;
+    
+}
+.header .flex .profile h3{
+    font-size: 2rem;
+    color: var(--blue5);
+}
+.side-bar{
+    position: fixed;
+    top: 0; left: 0;
+    width: 30rem;
+    background-color: white;
+    height: 100vh;
+    border-right: .1rem solid rgba(0,0,0,.2);
+    z-index: 1200;
+ }
+ 
+ .side-bar #close-btn{
+    text-align: right;
+    padding: 2rem;
+    display: none;
+ }
+ 
+ .side-bar #close-btn i{
+    text-align: right;
+    font-size: 2.5rem;
+    background:red;
+    border-radius: .5rem;
+    color:white;
+    cursor: pointer;
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    text-align: center;
+ }
+ 
+ .side-bar #close-btn i:hover{
+    background-color: black;
+ }
+ 
+ .side-bar .profile{
+    padding:3rem 2rem;
+    text-align: center;
+ }
+ 
+ .side-bar .profile img {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    object-fit: contain;
+    margin-bottom: 1rem;
+ }
+ .side-bar .profile h3{
+    font-size: 2rem;
+    color: var(--blue5);
+ }
+ .side-bar .profile span{
+    color: beige;
+    font-size: 1.6rem;
+ }
+ .side-bar .navbar{
+    margin-top:1rem ;
+ }
+ .side-bar .navbar a{
+    display: block;
+    padding: 1.5rem;
+    margin: .5rem 0;
+    font-size: 1.8rem;
+ }
+ .side-bar .navbar a i{
+    color: var(--blue5);
+    margin-right: 1.5rem;
+    transition:.2s linear ;
+
+ }
+ .side-bar .navbar a span{
+    color:var(--blue5);
+ }
+ .side-bar .navbar a:hover{
+    background-color: var(--blue2);
+ }
+ .side-bar .navbar a:hover i{
+    margin-right: 2.5rem;
+ }
+
+ .footer{
+    background-color: white;
+    border-top: .1rem solid rgba(0,0,0,.2);
+    position: sticky;
+    bottom: 0; left: 0; right: 0;
+    text-align: center;
+    font-size: 2rem;
+    padding:2.5rem 2rem;
+    color:var(--blue5);
+    margin-top: 1rem;
+    z-index: 1000;
+    /* padding-bottom: 9.5rem; */
+ }
+ 
+ .footer span{
+    color:var(--blue5);
+ }
+ .home-grid .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 38rem);
+    gap:1rem;
+    justify-content: space-evenly;
+    align-items: flex-start;
+
+ }
+ 
+ .home-grid .box-container .box{
+    background-color: var(--blue3);
+    border-radius: .5rem;
+    padding:2rem;
+    height: 45rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+ }
+ 
+ .home-grid .box-container .box .title{
+    font-size: 2rem;
+    color: var(--blue5);
+    text-transform: uppercase;
+    
+    
+ }
+ 
+ .home-grid .box-container .box .flex{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-top: 3rem;
+ }
+ 
+ .home-grid .box-container .flex a{
+    background-color: rgb(229, 245, 253);
+    border-radius: .5rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+    width:15rem;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ 
+ .home-grid .box-container .flex a i{
+    margin-right: 1rem;
+    color:black;
+    
+ }
+ 
+ .home-grid .box-container .flex a span{
+    color: rgb(35, 36, 37);
+
+ }
+ 
+ .home-grid .box-container .flex a:hover{
+    background-color: var(--blue5);
+ }
+ 
+ .home-grid .box-container .flex a:hover span{
+    color:white;
+ }
+ 
+ .home-grid .box-container .flex a:hover i{
+    color:white;
+ }
+ 
+ .home-grid .box-container .tutor{
+    padding: 1rem 0;
+    font-size: 1.89rem;
+    color:var(--blue1);
+    line-height: 2;
+    
+ }
+ 
+ .home-grid .box-container .likes{
+    color:var(--blue1);
+    font-size: 1.7rem;
+    margin-top: 1.5rem;
+ }
+ 
+ .home-grid .box-container .likes span{
+    color:var(--blue5);
+ }
+ 
+
+.log{
+    transform:translateX(-30rem) ;
+    background-color: #c8cfd1;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative; /* Add position relative to .log */
+}
+.col{
+    width: 50%;
+    height: 100%;
+    position: relative; /* Add position relative to .col */
+    z-index: 1; /* Set a higher z-index for the .col containing the form */
+
+}
+
+.col form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.imgLogin {
+    height: 100%;
+    background-image: url("../img/logoo.png");
+    background-size: cover;
+    background-position: center;
+}
+/* img{
+    width: 100%;
+    height: 100%;
+    /*transform: translateX(-20%);
+    /*position: relative;
+    z-index: 0;
+}*/
+
+.login-form{
+    width: 90%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 30px;
+    margin: 10px;
+    padding: 20px;
+
+    
+}
+.login-form input, .login-form button{
+    margin: 10px;
+    border-radius: 5px;
+    border:none;
+    
+}
+.login-form input{
+    display: inline-block;
+    width: 80%;
+    padding: 15px;
+    border-radius: 0;
+    border-bottom:solid 1px var(--blue1) ;
+    background: transparent;
+}
+.login-form button{
+    padding: 20px;
+    background-color: var(--blue5);
+    color: var(--blue3);
+}
+
+.login-form input:active,.login-form button:active {
+    transform: scale(0.95); /* Slightly scale down when clicked */
+    border: none;
+    border-bottom: solid 1px var(--blue5);
+    background: transparent;
+}
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus,
+.login-form select:focus,
+.login-form input[type="email"]:focus{
+outline:none;
+}
+p{  
+    font-size: 50px;
+    font-variant:small-caps;
+    font-weight: bold;
+    color: var(--blue5);
+
+}
+hr{
+    width: 60%;
+    border: solid 0.2px var(--blue5);
+    margin-bottom: 30px;
+    
+}
+.nav{
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--blue3);
+}
+.nav img{
+    display: inline-block;
+    width: 250px;
+    height: 150px;
+}
+
+
+.sidenav{
+    background-color: var(--blue2);
+    width: 20vw;
+    height: 100vh;
+}
+.content{
+    padding:20px 10px;
+    flex-grow:1;
+    height:100vh;
+    
+    }
+    table{
+    border-collapse:collapse;
+    width:100%;
+    }
+    th,td{
+    padding:5px;
+    border:1px solid black;
+    }
+    .top
+    {
+    display: flex;
+    margin:30px 0;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    }
+    .top a, .top button 
+    {
+    display:inline-block;
+    width:150px;
+    padding:10px 0;
+    background-color:black;
+    color:white;
+    text-align:center;
+    transition: 0.7s;
+    cursor: pointer;
+    }
+    .top input, .top select{
+    display:inline-block;
+    width:200px;
+    padding:10px 0;
+    border:none;
+    border-bottom:2px solid;
+    }
+    .top input:focus{outline:none}
+    button:hover{
+        opacity: 0.8;
+    }
+    fieldset{
+        padding:12px;
+        border: 2px solid;
+    }
+    .red{
+    color:red;
+    }
+    .blue{
+    color:blue;
+    }
+    
+    img {
+        width:20px;
+    }
+    
+    .row-form
+    {
+        width: 50%;
+        margin: 0 auto;
+    }
+    .user-profile .info{
+        background-color: white;
+        border-radius: .5rem;
+        padding: 2rem;
+     }
+     
+     .user-profile .info .user{
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 1rem;
+     }
+     
+     .user-profile .info .user img{
+        height: 10rem;
+        width: 10rem;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+     }
+     
+     .user-profile .info .user h3{
+        font-size: 2rem;
+        color: black;
+     }
+     
+     .user-profile .info .user p{
+        font-size: 1.7rem;
+        color: rgb(216, 231, 240);
+        padding: .3rem 0;
+     }
+     
+     .user-profile .info .box-container{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+     }
+     
+     .user-profile .info .box-container .box{
+        background-color: rgb(216, 231, 240);
+        border-radius: .5rem;
+        padding: 2rem;
+        flex: 1 1 25rem;
+     }
+     
+     .user-profile .info .box-container .box .flex{
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 1rem;
+     }
+     
+     .user-profile .info .box-container .box .flex i{
+        font-size:2rem;
+        color: white;
+        background-color: black;
+        text-align: center;
+        border-radius: .5rem;
+        height: 5rem;
+        width: 5rem;
+        line-height: 4.9rem;
+     }
+     
+     .user-profile .info .box-container .box .flex span{
+        font-size: 2.5rem;
+        color: var(--blue5);
+     }
+     
+     .user-profile .info .box-container .box .flex p{
+        color: var(--blue5);
+        font-size: 1.7rem;
+     }
+     
